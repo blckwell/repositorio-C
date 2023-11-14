@@ -1,79 +1,38 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-struct lista
-{
+struct numerica {
     int num;
-    struct lista *proximo;
+    struct numerica *proxima; 
 };
 
-void aloca(struct lista *proxima);
-void insereValor(struct lista celula);
-void menu(int digito);
+int main () {
 
-int main()
-{
+struct numerica *lista, *le;
+struct numerica celula;
+int digito;
 
-    struct lista *proxima;
-    struct lista celula;
-    int digito;
-    char sair;
-    while (sair != "s")
-    {
-        menu(digito);
+printf("digite 1 - para inserir valor a lista ou 0 - para sair:\n");
+scanf("%d", &digito);
+while(digito != 0) {
+    lista = (struct numerica*)malloc(sizeof(struct numerica));
+    if(lista == NULL) {
+        printf("Erro, nao foi possivel alocar!\n");
+    } else {
+        printf("Alocacao realizada com sucesso.\n");
 
-        switch (digito)
-        {
-        case 0:
-            sair = "s";
-            break;
-        case 1:
+        le = lista;
 
-            aloca(proxima);
+        printf("Digite o valor que deseja inserir na lista:\n");
+        scanf("%d", &celula.num);
 
-            insereValor(celula);
+        lista->num = celula.num;  
+    }
+}
 
-            proxima->num = celula.num;
-            proxima->proximo = NULL;
-
-            break;
-        case 2:
-            while (proxima != NULL)
-            {
-                printf("%d\n", proxima->num);
-                proxima = proxima->proximo;
-            }
-            break;
-        default:
-            printf("opcao invalida!\n");
-        }
+    while (le != NULL) {
+        printf("%d\n", le->num);
+        le = lista->proxima;
     }
 
     return 0;
-}
-
-void aloca(struct lista *proxima)
-{
-    proxima = (struct lista *)malloc(sizeof(struct lista));
-
-    if (proxima == NULL)
-    {
-        printf("Erro de alocacao!\n");
-    }
-    else
-    {
-        printf("Alocacao feita com sucesso!\n");
-    }
-}
-
-void insereValor(struct lista celula)
-{
-    printf("Insira o valor desejado:\n");
-    scanf("%d", &celula.num);
-}
-
-void menu(int digito)
-{
-    printf("Digite a opcao desejada:\n0 - sair  1 - Inserir valor  2 - imprimir\n");
-    scanf("%d", &digito);
 }
