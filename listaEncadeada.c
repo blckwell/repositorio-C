@@ -9,85 +9,50 @@ struct numerica
 
 int main()
 {
-
-    struct numerica *lista, *inicio;
+    struct numerica *inicio, *lista;
     struct numerica celula;
     int digito;
-    char opcao;
 
-    lista = (struct numerica *)malloc(sizeof(struct numerica));
-    if (lista == NULL)
-    {
-        printf("Erro, nao foi possivel alocar.\n");
+    inicio = NULL;
+
+    if(inicio == NULL) {
+        printf("Nao existe uma lista .. \n");
+        printf("criando lista ..\n");
+        lista = (struct numerica *)malloc(sizeof(struct numerica));
+        if(lista == NULL) {
+            printf("Erro, nao foi possivel alocar.\n");
+        }
     }
-    else
-    {
-        printf("Alocacao feita com sucesso.\nlista iniciada.\n");
-    }
 
-    while (opcao != "n")
-    {
+    inicio = lista; 
 
-        printf("Digite a opcao desejada:\n1 - inserir valor a lista  2 - imprimir lista  0 - sair\n\n");
-        scanf("%d", &digito);
-
-        inicio = lista;
-
-        switch (digito)
-        {
-        case 0:
-            return 0;
-            break;
-
-        case 1:
-            insereValor(celula);
-            aloca(lista);
-
-            break;
-
-        case 2:
-            imprime(inicio);
-            break;
-        default:
-            printf("Opcao invalida.\n");
+    while(digito != 0){
+        if(lista == NULL){
+            lista = (struct numerica *)malloc(sizeof(struct numerica));
         }
 
-        printf("Deseja inserir outro valor a lista?\ns or n\n");
-        scanf("%c", &opcao);
+        printf("Digite o numero que deseja inserir na lista:\n");
+        scanf("%d", &celula.num);
+
+        lista->num = celula.num;
+        lista->proxima = NULL;
+        lista = lista->proxima;
+
+        printf("Deseja inserir outro valor a lista?(1) - sim  (2) - nao\n");
+        scanf("%d", &digito);
+
+        if(digito == 1) {
+            printf("Ok, vamos inserir mais valores entao ..\n");
+        } else {
+            printf("Certo. Valeu, flw .. fim.\n");
+        }
     }
 
-    return 0;
-}
-
-void insereValor(struct numerica celula, struct numerica *lista)
-{
-    printf("Insira o valor desejado:\n");
-    scanf("%d", &celula.num);
-
-    lista->num = celula.num;
-
-    lista->proxima = NULL;
-    lista = lista->proxima;
-}
-
-void aloca(struct numerica *lista)
-{
-    lista = (struct numerica *)malloc(sizeof(struct numerica));
-    if (lista == NULL)
-    {
-        printf("Erro, nao foi possivel alocar.\n");
-    }
-    else
-    {
-        printf("Alocacao realizada com sucesso.\n");
-    }
-}
-
-void imprime(struct numerica *inicio)
-{
-    while (inicio != NULL)
-    {
-        printf("%d\n", inicio->num);
+    while(inicio != NULL) {
+        printf("Aqui estao os valores da lista:\n");
+        printf("%d\n\n", inicio->num);
         inicio = inicio->proxima;
     }
+    
+    return 0;
 }
