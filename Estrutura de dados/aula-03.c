@@ -9,7 +9,7 @@ int main()
     int a;
 
     printf("sizeof(a) = %d bytes \n", sizeof(a));
-    
+
     printf("sizeof(int) = %d bytes \n", sizeof(int));
     printf("sizeof(short) = %d bytes \n", sizeof(short));
     printf("sizeof(long) = %d bytes \n", sizeof(long));
