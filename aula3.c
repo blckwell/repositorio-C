@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// SCANF
+
 #define ano_atual 2026
 
 int main() {

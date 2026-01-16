@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// LENDO STRINGS
+
 int main () {
 
     char string[20];

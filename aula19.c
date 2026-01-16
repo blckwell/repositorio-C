@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+// STRINGS
+
+
 int main () {
 
     char string[10];

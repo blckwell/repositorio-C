@@ -4,6 +4,8 @@
 
 #define N 50
 
+// FUNÇÕES DA BIBLIOTECA STRING.H
+
 int main () {
 
     setlocale (LC_ALL, "Portuguese");

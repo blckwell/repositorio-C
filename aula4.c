@@ -2,6 +2,8 @@
 
 #define texto "Entrada e saida de dados:"
 
+// TIPAGEM
+
 int main () {
 
     printf("%s\n", texto);

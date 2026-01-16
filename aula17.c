@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// STRINGS
+
 int main () {
 
     int i = 0;
@@ -9,7 +11,6 @@ int main () {
         printf("%c ", string[i]);
         i ++;
     }
-
 
     return 0;
 }  
